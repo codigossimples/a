@@ -1,0 +1,115 @@
+package Agenda;
+
+import java.text.SimpleDateFormat;
+import java.util.Iterator;
+
+public class Persona {
+   private String  nombre, apellidos, DNI, telefono;
+   private Fecha fNacim;
+   
+   public Persona (String nom, String apell, String DNI, String tel, Fecha f) {
+	   this.nombre = nom;
+	   this.apellidos = apell;
+	   this.DNI = DNI;
+	   this.telefono = tel;
+	   this.fNacim = f;
+   }
+   //BRRRRR2
+   public int getEdad() {
+   	if (java.time.LocalDate.now().getMonthValue() < this.fNacim.getMes())
+   		return java.time.LocalDate.now().getYear()-this.fNacim.getA�o();
+   	else if (java.time.LocalDate.now().getMonthValue() == this.fNacim.getMes())
+   		if (java.time.LocalDate.now().getDayOfMonth() <= this.fNacim.getDia())
+   		   return java.time.LocalDate.now().getYear()-this.fNacim.getA�o();
+   		else 
+   		   return java.time.LocalDate.now().getYear()-this.fNacim.getA�o()-1;
+   	else return java.time.LocalDate.now().getYear()-this.fNacim.getA�o()-1;
+   }
+   
+   
+
+
+   public void mostrarPersona() {
+	    
+	   
+	    System.out.println("--------------------");
+		System.out.println("Nombre:"+getNombre());
+		System.out.println("Apellidos:"+getApellidos());
+		System.out.println("DNI:"+getDNI());
+		System.out.println("Telefono:"+getTelefono());
+		System.out.println("Fecha de Nacimiento:"+fNacim.getFechaFormateada());
+		System.out.println("Edad:"+getEdad());
+   }
+/**
+ * @return el nombre
+ */
+public String getNombre() {
+	return nombre;
+	
+}
+
+/**
+ * @param nombre el nombre a establecer
+ */
+public void setNombre(String nombre) {
+	this.nombre = nombre;
+}
+
+/**
+ * @return el apellidos
+ */
+public String getApellidos() {
+	return apellidos;
+}
+
+/**
+ * @param apellidos el apellidos a establecer
+ */
+public void setApellidos(String apellidos) {
+	this.apellidos = apellidos;
+}
+
+/**
+ * @return el dNI
+ */
+public String getDNI() {
+	return DNI;
+}
+
+/**
+ * @param dNI el dNI a establecer
+ */
+public void setDNI(String dNI) {
+	DNI = dNI;
+}
+
+/**
+ * @return el telefono
+ */
+public String getTelefono() {
+	return telefono;
+}
+
+/**
+ * @param telefono el telefono a establecer
+ */
+public void setTelefono(String telefono) {
+	this.telefono = telefono;
+}
+
+/**
+ * @return el fNacim
+ */
+public Fecha getfNacim() {
+	return fNacim;
+}
+
+/**
+ * @param fNacim el fNacim a establecer
+ */
+public void setfNacim(Fecha fNacim) {
+	this.fNacim = fNacim;
+}
+   
+   
+}
